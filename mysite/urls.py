@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib import admin
 from trips.views import home, post_detail
 
@@ -21,4 +22,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
     url(r'^post/(?P<pk>\d+)/$', post_detail, name='post_detail'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
