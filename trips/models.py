@@ -17,7 +17,7 @@ class Post(models.Model):
         return self.title
 
     def save(self):
-        super(self).save()
+        super(Post, self).save()
 
         credentials = get_credentials()
         http = credentials.authorize(httplib2.Http())
