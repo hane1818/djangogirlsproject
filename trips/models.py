@@ -8,6 +8,7 @@ from drive import get_credentials
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
+    contact = models.CharField(max_length=15)
     content = models.TextField(blank=True)
     photo = models.URLField(blank=True)
     location = models.CharField(max_length=100)

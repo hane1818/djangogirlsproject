@@ -1,3 +1,6 @@
+"""
+Use $ python credentials.py --noauth_local_webserver
+"""
 from __future__ import print_function
 import httplib2
 import os
@@ -14,8 +17,6 @@ except ImportError:
 
 
 SCOPES = 'https://www.googleapis.com/auth/drive'
-CLIENT_SECRET_FILE = 'client_secret.json'
-APPLICATION_NAME = 'Drive API'
 
 home_dir = os.getcwd()
 credential_dir = os.path.join(home_dir, '.credentials')
