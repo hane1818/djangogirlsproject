@@ -15,7 +15,7 @@
     </div>
     <div class="container post post-detail">
         <div class="post-heading">
-            <h1 class="title">{{ post.title }}</h1>
+            <h1 class="title">{{ post.title }}&nbsp;&nbsp;<span style="font-size: 15px;">&copy;&nbsp;{{ post.author }}</span></h1>
             <div class="date">{{ post.created_at|date:'Y / m / d' }}</div>
         </div>
         <div class="location">

@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 import httplib2
@@ -7,6 +8,7 @@ from drive import get_credentials
 
 
 class Post(models.Model):
+    author = models.ForeignKey(User)
     title = models.CharField(max_length=100)
     contact = models.CharField(max_length=15)
     content = models.TextField(blank=True)
