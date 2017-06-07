@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import Post
 
 
+def hello(request):
+    return render(request, 'hello.html', {'CLIENT_ID': os.environ.get('CLIENT_ID')})
+
 def home(request):
     post_list = Post.objects.all()
     return render(request, 'home.html', {

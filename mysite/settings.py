@@ -25,7 +25,7 @@ SECRET_KEY = 'y6&kmq1m7x-2_nlr9&#lr8+7b-z!j=u&xpkzo)&+%a0vmvobbs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djangogirlsproject.herokuapp.com',]
+ALLOWED_HOSTS = ['djangogirlsproject.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -121,6 +121,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
+
+FLICKR_STORAGE_OPTIONS = {
+    'api-key': '7e7684d38d2709010ece7650192a9f43',
+    'api-secret': '74dbc18ee5d7c447',
+    'oauth-token': '72157680773473354-9e9812dd0e3cb595',
+    'oauth-token-secret': '22d7bf087db5859d',
+    'user-id': '140686401@N04'
+}
+

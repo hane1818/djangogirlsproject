@@ -6,21 +6,42 @@ from apiclient import discovery
 from googleapiclient.http import MediaFileUpload
 from drive import get_credentials
 
+from flickr_pony.storage import FlickrStorage
+from mysite.settings import FLICKR_STORAGE_OPTIONS
+
 
 class Post(models.Model):
     author = models.ForeignKey(User)
     title = models.CharField(max_length=100)
-    contact = models.CharField(max_length=15)
+    contact = models.CharField(blank=True, max_length=15)
     content = models.TextField(blank=True)
-    photo = models.URLField(blank=True)
+    photo = models.ImageField(blank=True)
     location = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    photo.storage = FlickrStorage(
+        FLICKR_STORAGE_OPTIONS['api-key'],
+        FLICKR_STORAGE_OPTIONS['api-secret'],
+        FLICKR_STORAGE_OPTIONS['oauth-token'],
+        FLICKR_STORAGE_OPTIONS['oauth-token-secret'],
+        FLICKR_STORAGE_OPTIONS['user-id']
+    )
 
     def __str__(self):
         return self.title
 
-    def save(self):
-        super(Post, self).save()
+    def save(self,
+             force_insert=False,
+             force_update=False,
+             using=None,
+             update_fields=None):
+
+        print(dir(self.photo.storage))
+        super(Post, self).save(
+            force_insert=force_insert,
+            force_update=force_update,
+            using=using,
+            update_fields=update_fields)
 
         credentials = get_credentials()
         http = credentials.authorize(httplib2.Http())
