@@ -7,7 +7,6 @@ from .models import Post
 
 def home(request):
     post_list = Post.objects.all()
-
     """user_mail_topic = '寄送的標題'
     user_messgae = '內容'
     # 要寄送的對象
