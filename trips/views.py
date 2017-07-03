@@ -20,10 +20,10 @@ def home(request):
         user_messgae,
         settings.EMAIL_HOST_USER, to_list,
         fail_silently=False)
-
+    """
     return render(request, 'home.html', {
         'post_list': post_list,
-    })"""
+    })
 
 def post_detail(request, pk):
     post = Post.objects.get(pk=pk)

@@ -14,7 +14,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     contact = models.CharField(blank=True, max_length=15)
     content = models.TextField(blank=True)
-    photo = models.FileField(blank=True, upload_to='django-test', storage=gd_storage)
+    photo = models.FileField(blank=True, upload_to='django-test')
     location = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
 
