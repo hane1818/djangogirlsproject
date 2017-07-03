@@ -130,3 +130,13 @@ FLICKR_STORAGE_OPTIONS = {
     'user-id': '140686401@N04'
 }
 
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.environ.get("GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE")
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# TLS Port
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'hane1818@gmail.com'
+# Application Key
+EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_KEY')
