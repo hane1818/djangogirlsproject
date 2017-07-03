@@ -29,4 +29,4 @@ def post_detail(request, pk):
     return render(request, 'post.html', {'post': post})
 
 def call_back(request):
-    return HttpResponse(request.GET.get("hub.modehub.challenge"))
+    return HttpResponse(request.GET.get("hub.challenge"))
